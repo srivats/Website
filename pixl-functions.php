@@ -125,7 +125,12 @@ function pixl_code( $atts,$content = null) {
   extract(shortcode_atts(array(
       'class' => $atts['class']
     ), $atts));
-  return '<pre><code class='.$class.'>'.$content.'</code></pre>';
+  if(isset($class)) {
+    return '<pre><code class='.$class.'>'.$content.'</code></pre>';
+  }
+  else {
+   return '<pre><code>'.$content.'</code></pre>'; 
+  }
 }
 
 add_shortcode('code','pixl_code');
