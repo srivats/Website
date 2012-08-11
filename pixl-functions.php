@@ -89,7 +89,7 @@ function display_testimonials() {
       $testimonials_slider.= '<div>'.get_the_content().'</div>';
       $testimonials_slider.='<div class="client-name">'.$client_name.'</div>';
       $testimonials_slider.='<div class="website-link"><a href="http://'.$website_link.'" rel="nofollow">'.$website_link.'</a></div>';
-      $testimonials_slider.='</div></div>';
+      $testimonials_slider.='</div>';
       $testimonials_slider.='<a class="carousel-control left" href="#testimonials-slider" data-slide="prev">&lsaquo;</a>';
       $testimonials_slider.='<a class="carousel-control right" href="#testimonials-slider" data-slide="next">&rsaquo;</a>';
       $testimonials_slider.='</div>';
@@ -109,4 +109,3 @@ function pixl_code( $atts,$content = null) {
   }
 }
 
-add_shortcode('code','pixl_code');
