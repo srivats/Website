@@ -74,20 +74,14 @@ function fancybox_scripts() {
 }
 
 
-function syntax_highlighter() {
-  if(is_single()) :
+function syntax_highlighter() {  
 
   wp_register_script('syntax_highlighter',get_template_directory_uri() . '/js/highlight.pack.js', false,null,false);
-  wp_register_style('syntax_highlighter',get_template_directory_uri() . '/css/code.css', false,null,false);
+  wp_register_style('syntax_highlighter',get_template_directory_uri() . '/css/github.css', false,null,false);
   wp_enqueue_script('syntax_highlighter');
   wp_enqueue_style('syntax_highlighter');
-  ?>
-
-<?php endif;
 
 }
-?>
-<?php 
 add_action('wp_enqueue_scripts','fancybox_scripts');
 add_action('wp_enqueue_scripts','syntax_highlighter',1);
 remove_filter('the_content', 'wptexturize');
@@ -109,4 +103,4 @@ function lphpjs_code( $atts, $content = null ) {
 }
 
 // add_shortcode('code', 'lphpjs_code');
-
+?>
