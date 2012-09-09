@@ -1,5 +1,9 @@
 <?php 
-// slider custom post type
+/**
+ * Add new custom type slider
+ * 
+ */
+
 function slider_register() {
 
   $args = array(
@@ -15,7 +19,11 @@ function slider_register() {
 
 add_action('init', 'slider_register');  
 
-// get slider images 
+/**
+ * retrieve all slider images
+ * 
+ * @return mixed html
+ */
 function get_image_slider() {
   $image_slider = '<div id="image-slider" class="image-carousel carousel slide">
                   <div class="carousel-inner">';
@@ -49,7 +57,10 @@ function image_slider() {
   print get_image_slider();
 }
 
-//testimonials custom type
+/**
+ * Add new custom type testimonials
+ * 
+ */
 
 function testimonial_register() {
   $args = array(
@@ -64,6 +75,12 @@ function testimonial_register() {
 
 add_action('init','testimonial_register');
 
+/**
+ * Add custom fields for testimonial post type in wp-admin
+ * @param int $post_id
+ * 
+ * @return bool
+ */
 function set_testimonial_custom_fields($post_id) {
   if($_GET['post_type']=='testimonials') {
     add_post_meta($post_id, 'Client Name', '', true);
@@ -74,6 +91,11 @@ function set_testimonial_custom_fields($post_id) {
 }
 
 add_action('wp_insert_post', 'set_testimonial_custom_fields');
+/**
+ * Generate testimonials slider for testimonial custom post
+ * 
+ * @return  mixed  html code
+*/
 
 function display_testimonials() {
   
@@ -96,6 +118,16 @@ function display_testimonials() {
   }
   return $testimonials_slider;
 }
+
+/**
+ * generate syntax highligting for code
+ * 
+ * @param  mixed $atts   
+ *  
+ * @param  mixed $content 
+ * 
+ * @return mixed          
+ */
 
 function pixl_code( $atts,$content = null) {
   extract(shortcode_atts(array(
