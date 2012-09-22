@@ -13,9 +13,9 @@
 @black:                 #000;
 @grayDarker:            #222;
 @grayDark:              #333;
-@gray:                  #555;
+@gray:                  #6c6c6c;
 @grayLight:             #999;
-@grayLighter:           #eee;
+@grayLighter:           #f8f8f8;
 @white:                 #fff;
 
 
@@ -33,24 +33,27 @@
 
 // Scaffolding
 // -------------------------
-@bodyBackground:        @white;
-@textColor:             @grayDark;
+@bodyBackground:        @grayLighter;
+@textColor:             @gray;
 
 
 // Links
 // -------------------------
-@linkColor:             #08c;
+@linkColor:             #d6231f;
 @linkColorHover:        darken(@linkColor, 15%);
 
 
 // Typography
 // -------------------------
+@import url(http://fonts.googleapis.com/css?family=PT+Sans);
+
 @sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+@sansSerifFontFamily:	"PT Sans", @sansFontFamily;
 @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace;
 
 @baseFontSize:          13px;
-@baseFontFamily:        @sansFontFamily;
+@baseFontFamily:        @sansSerifFontFamily;
 @baseLineHeight:        18px;
 @altFontFamily:         @serifFontFamily;
 
