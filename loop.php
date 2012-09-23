@@ -16,12 +16,8 @@
         <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
         <?php roots_entry_meta(); ?>
       </header>
-      <div class="entry-content">
-        <?php if (is_archive() || is_search()) { ?>
+      <div class="entry-content">       
           <?php the_excerpt(); ?>
-        <?php } else { ?>
-          <?php the_content(); ?>
-        <?php } ?>
       </div>
       <footer>
         <?php $tags = get_the_tags(); if ($tags) { ?><p><?php the_tags(); ?></p><?php } ?>
@@ -31,10 +27,20 @@
   <?php roots_post_after(); ?>
 <?php endwhile; /* End loop */ ?>
 
-<?php /* Display navigation to next/previous pages when applicable */ ?>
+<?php /* Display numbers for pagination when applicable */ ?>
 <?php if ($wp_query->max_num_pages > 1) { ?>
   <nav id="post-nav" class="pager">
-    <div class="previous"><?php next_posts_link(__('&larr; Older posts', 'roots')); ?></div>
-    <div class="next"><?php previous_posts_link(__('Newer posts &rarr;', 'roots')); ?></div>
+    <?php
+      $total_pages = $wp_query->max_num_pages;  
+      if ($total_pages > 1) {  
+        $current_page = max(1, get_query_var('paged'));  
+        echo paginate_links(array(  
+          'base' => get_pagenum_link(1) . '%_%',  
+          'format' => '/page/%#%',  
+          'current' => $current_page,  
+          'total' => $total_pages,  
+        ));  
+      }  
+    ?>
   </nav>
 <?php } ?>
