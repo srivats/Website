@@ -141,3 +141,14 @@ function pixl_code( $atts,$content = null) {
   }
 }
 
+/**
+ * @param   int $length
+ *
+ * @return  int $length
+ */
+
+function my_excerpt_length($length) {
+  return 120; 
+}
+
+add_filter('excerpt_length', 'my_excerpt_length');
